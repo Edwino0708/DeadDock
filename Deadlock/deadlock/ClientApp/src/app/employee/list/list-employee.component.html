@@ -1,0 +1,117 @@
+<div id="employees">
+
+  <!-- HEADER -->
+<div class="header">
+  <div class="title"  fxLayoutAlign="start center">
+    <h2>Lista de Empleados</h2>
+  </div>
+  <div class="options">
+    <div class="search" >
+        <mat-form-field appearance="outline">
+            <mat-label>Buscar empleado</mat-label>
+            <input matInput #filter placeholder="Buscar">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+    </div>
+    <div class="btn-add">
+      <a [routerLink]="['./new']" routerLinkActive="router-link-active" ><mat-icon [inline]="true">add_circle_outline</mat-icon>
+      </a></div>
+  
+  </div>
+  
+</div>
+
+
+<!-- CENTER -->
+<div class="center">
+
+<!-- CONTENT CARD -->
+<div class="mat-elevation-z8">
+
+    <div class="spinner-container" *ngIf="dataSource.loading$ | async">
+        <mat-spinner></mat-spinner>
+    </div>
+   
+    
+    <mat-table class="employees-table" #table [dataSource]="dataSource" matSort>
+
+        
+        <ng-container matColumnDef="firstName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
+            <mat-cell *matCellDef="let employee">
+                <p class="text-truncate">{{ employee.firstName }}</p>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Apellido</mat-header-cell>
+            <mat-cell *matCellDef="let employee">
+                <p class="text-truncate">{{ employee.lastName }}</p>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="emplNumber">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Numero de Empleado</mat-header-cell>
+            <mat-cell *matCellDef="let employee">
+                <p class="text-truncate">{{ employee.emplNumber }}</p>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Postion de Empleado</mat-header-cell>
+            <mat-cell *matCellDef="let employee">
+                <p class="text-truncate">{{ employee.position }}</p>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="salary">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Salario de Empleado</mat-header-cell>
+            <mat-cell *matCellDef="let employee">
+                <p class="text-truncate">{{ employee.salary }}</p>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="hireDate">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de Ingreso Empleado</mat-header-cell>
+            <mat-cell *matCellDef="let employee">
+                <p class="text-truncate">{{ employee.hireDate | date : "dd/MM/yyyy" }}</p>
+            </mat-cell>
+        </ng-container>
+
+          <!-- Buttons Column -->
+          <ng-container matColumnDef="buttons">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let employee">
+                <div fxFlex="row" fxLayoutAlign="end center">
+                    <button mat-icon-button [matMenuTriggerFor]="moreMenu" aria-label="More"
+                        (click)="$event.stopPropagation()">
+                        <mat-icon class="secondary-text">more_vert</mat-icon>
+                    </button>
+
+                    <mat-menu #moreMenu="matMenu">
+                        <button mat-menu-item aria-label="edit" [routerLink]="['./', employee.id]">
+                            <mat-icon>edit</mat-icon>
+                            <span>Editar</span>
+                        </button>
+                        <button mat-menu-item aria-label="remove" (click)="onDelete(employee.id)">
+                        <mat-icon>remove</mat-icon>
+                        <span>Eliminar</span>
+                    </button>
+                    </mat-menu>
+                </div>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+        <mat-row *matRowDef="let row; columns: displayedColumns" class="broker"></mat-row>
+    </mat-table>
+
+    <mat-paginator #paginator [length]="dataSource.getTotalEmployee" [pageIndex]="0" [pageSize]="10"
+        [pageSizeOptions]="[10, 25, 50, 100]">
+    </mat-paginator>
+</div>
+<!-- / CONTENT CARD -->
+</div>
+<!-- / CENTER -->
+</div>

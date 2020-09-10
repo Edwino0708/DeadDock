@@ -1,0 +1,207 @@
+
+<div class="header">
+
+  <h2>Creacion de un Empleado</h2>
+  
+  </div>
+<mat-tab-group *ngIf="data" >
+  <mat-tab label="Información Personal">
+    <form class="personal" [formGroup]="employeeForm">
+      <div>
+        <mat-form-field  appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input formControlName="firstName" matInput type="text" >
+          <mat-error *ngIf="employeeForm.get('firstName').hasError('required')">
+            Nombre es <strong>required</strong>
+          </mat-error>
+        
+        </mat-form-field>
+  
+        <mat-form-field   appearance="outline">
+          <mat-label>Apellido</mat-label>
+          <input formControlName="lastName" matInput type="text" >
+          <mat-error *ngIf="employeeForm.get('lastName').hasError('required')">
+            Apellido es <strong>required</strong>
+          </mat-error>
+        
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field  appearance="outline" >
+          <mat-label>Sexo</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option value="m">Masculino</mat-option>
+            <mat-option value="f">Femenino</mat-option>
+          </mat-select>
+          <mat-error *ngIf="employeeForm.get('gender').hasError('required')">
+            Sexo es <strong>required</strong>
+          </mat-error>
+        
+        </mat-form-field>
+  
+        <mat-form-field  appearance="outline">
+          <mat-label>Fecha Nacimiento</mat-label>
+          <input formControlName="dateOfBirth" matInput type="date" >
+          <mat-error *ngIf="employeeForm.get('dateOfBirth').hasError('required')">
+            Fecha Nacimiento es <strong>required</strong>
+          </mat-error>
+        
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field  appearance="outline">
+          <mat-label>Telefono</mat-label>
+          <input formControlName="phoneNumber" matInput type="text" >
+          <mat-error *ngIf="employeeForm.get('phoneNumber').hasError('required')">
+            Telefono es <strong>required</strong>
+          </mat-error>
+        
+        </mat-form-field>
+  
+        <mat-form-field  appearance="outline">
+          <mat-label>Telefono Movil</mat-label>
+          <input formControlName="mobilePhone" matInput type="text" >
+          <!-- <mat-error *ngIf="employeeForm.get('mobilePhone').hasError('required')">
+            Telefono Movil es <strong>required</strong>
+          </mat-error> -->
+        
+        </mat-form-field>
+      </div>
+     
+
+    </form>
+  </mat-tab>
+  <mat-tab label="Informacion Dirreción">
+    <form class="personal" [formGroup]="employeeForm">
+      <div>
+        <mat-form-field  appearance="outline">
+          <mat-label>Pais</mat-label>
+          <input formControlName="country" matInput type="text" >
+          <mat-error *ngIf="employeeForm.get('country').hasError('required')">
+            Pais es <strong>required</strong>
+          </mat-error>
+        
+        </mat-form-field>
+  
+        <mat-form-field  appearance="outline">
+          <mat-label>Cuidad</mat-label>
+          <input formControlName="city" matInput type="text" >
+          <mat-error *ngIf="employeeForm.get('city').hasError('required')">
+            Cuidad es <strong>required</strong>
+          </mat-error>
+        
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field  appearance="outline">
+          <mat-label>Sector</mat-label>
+          <input formControlName="sector" matInput type="text" >
+          <mat-error *ngIf="employeeForm.get('sector').hasError('required')">
+            Telefono es <strong>required</strong>
+          </mat-error>
+        
+        </mat-form-field>
+  
+        <mat-form-field  appearance="outline" >
+          <mat-label>Municipio</mat-label>
+          <input formControlName="municipality" matInput type="text" >
+          <mat-error *ngIf="employeeForm.get('municipality').hasError('required')">
+            Telefono Movil es <strong>required</strong>
+          </mat-error>
+        
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field  appearance="outline">
+          <mat-label>Calle</mat-label>
+          <input formControlName="streetName" matInput type="text" >
+          <mat-error *ngIf="employeeForm.get('streetName').hasError('required')">
+            Sexo es <strong>required</strong>
+          </mat-error>
+        
+        </mat-form-field>
+  
+        <mat-form-field  appearance="outline">
+          <mat-label>Numero de casa</mat-label>
+          <input formControlName="houseNumber" matInput type="text" >
+          <mat-error *ngIf="employeeForm.get('houseNumber').hasError('required')">
+            Fecha Nacimiento es <strong>required</strong>
+          </mat-error>
+        
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-tab>
+  <mat-tab label="Informacion Empleado">
+    <form class="personal" [formGroup]="employeeForm">
+      <div>
+        <mat-form-field  appearance="outline">
+          <mat-label>Numero de empleado</mat-label>
+          <input formControlName="emplNumber" matInput type="text" >
+          <mat-error *ngIf="employeeForm.get('emplNumber').hasError('required')">
+            Numero de empleado es <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field  appearance="outline">
+          <mat-label>Posicion</mat-label>
+          <mat-select formControlName="positionId">
+            <mat-option *ngFor="let item of positions" [value]="item.id">{{item.name}}</mat-option>
+            </mat-select>
+          <mat-error *ngIf="employeeForm.get('positionId').hasError('required')">
+            Posicion es <strong>required</strong>
+          </mat-error>
+        </mat-form-field>   
+    </div>
+
+      <div>
+        <mat-form-field  appearance="outline">
+          <mat-label>Email Personal</mat-label>
+          <input formControlName="email" matInput type="text" >
+          <mat-error *ngIf="employeeForm.get('email').hasError('required')">
+            Email es <strong>required</strong>
+          </mat-error>
+        
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Email Empleado</mat-label>
+          <input formControlName="emailEmployee" matInput type="text" >
+          <mat-error *ngIf="employeeForm.get('emailEmployee').hasError('required')">
+            Email de Empleado es <strong>required</strong>
+          </mat-error>
+        
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field  appearance="outline">
+          <mat-label>Salario</mat-label>
+          <input formControlName="salary" matInput type="text" >
+          <mat-error *ngIf="employeeForm.get('salary').hasError('required')">
+            Salario es <strong>required</strong>
+          </mat-error>
+        
+        </mat-form-field>
+      </div>
+    </form>
+    <div class="btn-options">  
+      <button class="btn-clear" (click)="retunList()" mat-raised-button>Cancelar</button>
+      <ng-template #name></ng-template>
+      
+      <button *ngIf="this.id == 'new'; else btnUpdate" class="btn-save" mat-raised-button color="primary" (click)="onSave()" [disabled]="employeeForm.invalid">Guardar</button>
+  
+      <ng-template #btnUpdate>
+        <button class="btn-save" mat-raised-button color="primary" (click)="onUpdate()" [disabled]="employeeForm.invalid">Actualizar</button>
+  
+      </ng-template>
+      
+  
+    </div>
+  </mat-tab>
+
+</mat-tab-group>

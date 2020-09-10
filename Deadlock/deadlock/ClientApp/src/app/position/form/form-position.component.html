@@ -1,0 +1,54 @@
+<div class="header">
+
+<h2>Creacion de una nueva Posición</h2>
+
+</div>
+<div class="content">
+  <form *ngIf="data"  [formGroup]="positionForm" >
+ 
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre de la Posición</mat-label>
+      <input formControlName="name" matInput type="text" > 
+      <mat-error *ngIf="positionForm.get('name').hasError('required')">
+        Descripción is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Descripción de la Posción</mat-label>
+      <input formControlName="description" matInput type="text" >
+     <mat-error *ngIf="positionForm.get('description').hasError('required')">
+        Descripción is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+     
+    <mat-form-field *ngIf="id !== 'new'" appearance="outline">
+      <mat-label>Estado de la posicion</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="true">Activa</mat-option>
+        <mat-option value="false">Desactiva</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    
+  </form>
+  <div class="btn-options">  
+    <button class="btn-clear" (click)="retunList()" mat-raised-button>Cancelar</button>
+    <ng-template #name></ng-template>
+    
+    <button *ngIf="this.id == 'new'; else btnUpdate" class="btn-save" mat-raised-button color="primary" (click)="onSave()" [disabled]="positionForm.invalid">Guardar</button>
+
+    <ng-template #btnUpdate>
+      <button class="btn-save" mat-raised-button color="primary" (click)="onUpdate()" [disabled]="positionForm.invalid">Actualizar</button>
+
+    </ng-template>
+    
+
+  </div>
+
+
+</div>
+
+

@@ -1,0 +1,15 @@
+C:\Users\edwin\source\repos\Deadlock\deadlock.bi\bin\Debug\netcoreapp3.1\deadlock.bi.deps.json
+C:\Users\edwin\source\repos\Deadlock\deadlock.bi\bin\Debug\netcoreapp3.1\deadlock.bi.runtimeconfig.json
+C:\Users\edwin\source\repos\Deadlock\deadlock.bi\bin\Debug\netcoreapp3.1\deadlock.bi.runtimeconfig.dev.json
+C:\Users\edwin\source\repos\Deadlock\deadlock.bi\bin\Debug\netcoreapp3.1\deadlock.bi.dll
+C:\Users\edwin\source\repos\Deadlock\deadlock.bi\bin\Debug\netcoreapp3.1\deadlock.bi.pdb
+C:\Users\edwin\source\repos\Deadlock\deadlock.bi\bin\Debug\netcoreapp3.1\deadlock.data.dll
+C:\Users\edwin\source\repos\Deadlock\deadlock.bi\bin\Debug\netcoreapp3.1\deadlock.data.pdb
+C:\Users\edwin\source\repos\Deadlock\deadlock.bi\obj\Debug\netcoreapp3.1\deadlock.bi.csprojAssemblyReference.cache
+C:\Users\edwin\source\repos\Deadlock\deadlock.bi\obj\Debug\netcoreapp3.1\deadlock.bi.AssemblyInfoInputs.cache
+C:\Users\edwin\source\repos\Deadlock\deadlock.bi\obj\Debug\netcoreapp3.1\deadlock.bi.AssemblyInfo.cs
+C:\Users\edwin\source\repos\Deadlock\deadlock.bi\obj\Debug\netcoreapp3.1\deadlock.bi.csproj.CoreCompileInputs.cache
+C:\Users\edwin\source\repos\Deadlock\deadlock.bi\obj\Debug\netcoreapp3.1\deadlock.bi.csproj.CopyComplete
+C:\Users\edwin\source\repos\Deadlock\deadlock.bi\obj\Debug\netcoreapp3.1\deadlock.bi.dll
+C:\Users\edwin\source\repos\Deadlock\deadlock.bi\obj\Debug\netcoreapp3.1\deadlock.bi.pdb
+C:\Users\edwin\source\repos\Deadlock\deadlock.bi\obj\Debug\netcoreapp3.1\deadlock.bi.genruntimeconfig.cache

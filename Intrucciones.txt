@@ -1,0 +1,5 @@
+1-Correr el srcipt de la base de dato
+
+2- configuara la cadena de conexion tando de deadLock.data y daeadLock
+
+3-probar

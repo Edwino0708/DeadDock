@@ -1,0 +1,20 @@
+
+form{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.btn-options{
+  float:right;
+  .btn-save{
+    margin-left: 20px;;
+  }
+}
+
+.header{
+  margin: 40px;
+  h2{
+    text-align: center;
+  }
+}

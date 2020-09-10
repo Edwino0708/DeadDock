@@ -1,0 +1,43 @@
+.personal{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+   
+    div{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        width: 100%;
+       
+        mat-form-field{
+            width: 45%;
+       }
+
+         .btn-options{
+           display: block !important;
+       }
+    }
+
+    
+}
+
+
+form{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.btn-options{
+  float:right;
+  .btn-save{
+    margin-left: 20px;;
+  }
+}
+
+.header{
+  margin: 40px;
+  h2{
+    text-align: center;
+  }
+}

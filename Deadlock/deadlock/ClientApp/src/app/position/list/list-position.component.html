@@ -1,0 +1,95 @@
+<div id="positions">
+
+ <!-- HEADER -->
+ <div class="header">
+    <div class="title"  fxLayoutAlign="start center">
+      <h2>Lista de Posiciones</h2>
+    </div>
+    <div class="options">
+      <div class="search" >
+          <mat-form-field appearance="outline">
+              <mat-label>Buscar Poisición</mat-label>
+              <input matInput #filter placeholder="Buscar">
+              <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+      </div>
+      <div class="btn-add">
+        <a [routerLink]="['./new']" routerLinkActive="router-link-active" ><mat-icon [inline]="true">add_circle_outline</mat-icon>
+        </a></div>
+    
+    </div>
+    
+  </div>
+
+  <!-- CENTER -->
+  <div class="center">
+
+      <!-- CONTENT CARD -->
+      <div class="mat-elevation-z8">
+          <!-- <div class="spinner-container" *ngIf="dataSource.loading$ | async">
+              <mat-spinner></mat-spinner>
+          </div> -->
+          <mat-table class="positions-table" #table [dataSource]="dataSource" matSort>
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef >Nombre Posición</mat-header-cell>
+                  <mat-cell *matCellDef="let position">
+                      <p class="text-truncate">{{ position.name }}</p>
+                  </mat-cell>
+              </ng-container>
+
+              <!--Description  Column -->
+              <ng-container matColumnDef="description">
+                  <mat-header-cell *matHeaderCellDef >Descripción</mat-header-cell>
+                  <mat-cell *matCellDef="let position">
+                      <p class="text-truncate">{{ position.description }}</p>
+                  </mat-cell>
+              </ng-container>
+
+                <ng-container matColumnDef="status">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Estado</mat-header-cell>
+                    <mat-cell *matCellDef="let position">
+                        <mat-icon *ngIf="position.status == true" class="active-icon green-600 s-16">check</mat-icon>
+                        <mat-icon *ngIf="position.status == false" class="active-icon red-500 s-16">close</mat-icon>
+                    </mat-cell>
+                </ng-container>
+
+
+                <!-- Buttons Column -->
+                <ng-container matColumnDef="buttons">
+                  <mat-header-cell *matHeaderCellDef>Opciones</mat-header-cell>
+                  <mat-cell *matCellDef="let position">
+                      <div fxFlex="row" fxLayoutAlign="end center">
+                          <button mat-icon-button [matMenuTriggerFor]="moreMenu" aria-label="More"
+                              (click)="$event.stopPropagation()">
+                              <mat-icon class="secondary-text">more_vert</mat-icon>
+                          </button>
+
+                          <mat-menu #moreMenu="matMenu">
+                              <button mat-menu-item aria-label="edit" [routerLink]="['/position', position.id]">
+                                  <mat-icon>edit</mat-icon>
+                                  <span>Editar</span>
+                              </button>
+                              <button mat-menu-item aria-label="remove" (click)="onDelete(position.id)">
+                                 <mat-icon>remove</mat-icon>
+                                 <span>Eliminar</span>
+                               </button>
+
+                          </mat-menu>
+                      </div>
+                  </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+              <mat-row *matRowDef="let row; columns: displayedColumns" class="broker"></mat-row>
+          </mat-table>
+
+          <mat-paginator #paginator [length]="dataSource.getTotalPosition" [pageIndex]="0" [pageSize]="10"
+              [pageSizeOptions]="[10, 25, 50, 100]">
+          </mat-paginator>
+      </div>
+      <!-- / CONTENT CARD -->
+  </div>
+  <!-- / CENTER -->
+</div>
